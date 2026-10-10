@@ -1,0 +1,13 @@
+name: author-feed
+version: 0.1.0
+manifest_version: 2
+requires_hermes: '>=0.21.4'
+description: "Read one public profile and watch one account, with profile_get, author_feed and author_watch. Disclosure — HTTPS GET only to public.api.bsky.app, no API key, and no program on your machine. The tools are on for every surface, including gateways, and ask for no approval: anyone you allow on your gateway can call them. Turn a surface off with hermes tools. hermes author-feed schedule creates one cron job, a model turn every hour by default (two or more model requests, no daily cap). Delivered to local unless you pass --deliver, so no chat by default. Run hermes author-feed unschedule before removal. A leftover job after the plugin is gone stops with hermes cron remove <id>. Under plugins.isolation: host the watch cannot run and posts a notice saying so on every run. The first run only records what is already there. One run reads at most the latest 3 pages and announces a new post by this account on them. When every row on those pages is new, with no saved post or mark, and the feed still offers another cursor, it also posts a possible-miss notice, at most once in 24 hours while that keeps happening. Replies, including the account's own thread continuations, are not announced. It relies on private Hermes parts, so an update can stop it. State stays in <HERMES_HOME>/plugin-data/author-feed after uninstall."
+author: TakeshiTGAL
+license: MIT
+python_dependencies: []
+provides_tools:
+- profile_get
+- author_feed
+- author_watch
+provides_hooks: []
